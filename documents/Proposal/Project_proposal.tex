@@ -1,0 +1,63 @@
+% !TeX encoding = UTF-8
+% !TeX program = pdflatex
+% !BIB program = biber
+
+\documentclass[utf8, english]{lni}
+%\documentclass[utf8, biblatex, english]{lni}
+\usepackage{multirow}
+\hypersetup{colorlinks,breaklinks,
+            urlcolor=[rgb]{0,0.5,0.5},
+            linkcolor=[rgb]{0,0.5,0.5}
+}
+            
+%\addbibresource{bibtex.bib}
+\lniinitialism{\djia}{DJIA}
+
+\begin{document}
+\title[Proposal]{Project proposal - Sarcasm Detection}
+\subtitle{Group: kittycore} % if needed
+\author[Pascal Weiß, Gabriel Lindenmaier]{%
+Pascal Weiß\footnote{Student no.: 3296455, \email{st155517@stud.uni-stuttgart.de}, M.Sc. Informatik} \and%
+Gabriel Lindenmaier\footnote{Student no.: 3294826, \email{st154526@stud.uni-stuttgart.de}, M.Sc. Informatik}}
+\startpage{1} % Beginn der Seitenzählung für diesen Beitrag / Start page
+\editor{Deep Learning for Speech and Language Processing} % Names of Editors
+\booktitle{Projekt} % Name of book title
+\year{2017}
+%%%\lnidoi{18.18420/provided-by-editor-02} % if known
+\maketitle
+\begin{abstract}
+This is the proposal for the \emph{Deep Learning for Speech and Language Processing} course project. It contains the group name and the members, our chosen project topic and research goals. And a basic project plan which defines the milestones.
+\end{abstract}
+%\begin{keywords}
+%Deep Learning
+%\end{keywords}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%////////////////////////////////////////////////////////////////////////////////
+\section{Topic \& research questions}   %==================================================================================
+Our topic will be topic 7: \emph{Sarcasm Detection}.\\
+
+We believe that the classification of text as sarcasm can be a very important feature for text analysis applications. One example would be using sarcasm as a feature for classifying the political mind set of people from social network data (we see such analysis highly critical from an ethical perspective, but its an illustrative example).\\  
+As detecting sarcasm in text can be a hard task even for humans, we are interested in investigating how well this can be done algorithmically. To do this, we consider Deep Learning an appropriate approach for the problem. One reason might be, that sophisticated features come in handy in detecting sarcasm. And Deep Learning is a technique which is known to find such features automatically.\\
+One idea to achieve the goal of sarcasm detection is to build a Neural Network which finds patterns in the given text that represent the meaning. Then we would build a second Neural Network which shall detect a relation between the meaning of the post and the meaning of the eventually sarcastic reply.
+
+\subsection{Research Question by Pascal Weiß}
+An investigation on how well a DNN - e.g. cut base model - can be used as feature generator for other state-of-the-art classification algorithms (non-NN-algorithms). This shall then be compared to the base model - which will be a pure NN approach.
+
+\subsection{Research Question by Gabriel Lindenmaier}
+A variant of Adversarial Examples - How to poison a network:
+Build a Neural Network that modifies a given reply as little as possible, while still leading to the opposite classification from the base model. This will give insight into the weaknesses of the classifier, e.g. dependence on misspelling. Extensions of the research question like paraphrase generation or just pure noise and even own reply generation are possible.
+
+\section{Project plan}
+%==================================================================================
+\begin{minipage}{\textwidth} 
+	\centering
+	\includegraphics[width=0.8\textwidth]{project_plan}
+	\captionof{figure}{Project plan: Milestones \& deadlines}
+	\label{pic:newspaperload1}
+\end{minipage}
+\newline \newline
+Git project repository: \href{https://clarin06.ims.uni-stuttgart.de/weisspl/dl_project_gl_pw}{dl\_gl\_pw\_ws\_2017}
+%%% Angabe der .bib-Datei (ohne Enung) / State .bib file (for BibTeX usage)
+%\printbibliography %\printbibliography if you use biblatex/Biber
+
+\end{document}

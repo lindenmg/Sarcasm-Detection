@@ -1,0 +1,80 @@
+{
+  "data_factory": {
+    "module": "src.strategies.dummy.dummy_data_factory",
+    "class_name": "DummyDataFactory",
+    "args": {
+      "pp_params": {
+        "train_examples": 2000,
+        "test_examples": 200,
+        "dim": 100,
+        "seed": 44
+      }
+    }
+  },
+  "optimizer": {
+    "module": "torch.optim",
+    "class_name": "ASGD",
+    "args": {
+      "lr": 0.005
+    }
+  },
+  "metrics": {
+    "output_activation": "log_softmax"
+  },
+  "criterion": {
+    "module": "torch.nn",
+    "class_name": "NLLLoss",
+    "args": {
+      "size_average": true
+    }
+  },
+  "lr_scheduler": {
+    "module": "torch.optim.lr_scheduler",
+    "class_name": "ReduceLROnPlateau",
+    "args": {
+      "threshold": 0.007,
+      "mode": "min",
+      "patience": 20,
+      "threshold_mode": "abs",
+      "factor": 0.99
+    }
+  },
+  "cv_iterator_factory": {
+    "module": "src.strategies.dummy.dummy_cv_iterator_factory",
+    "class_name": "DummyCVIteratorFactory",
+    "args": {
+      "shuffle": false,
+      "dataset_module": "src.strategies.dummy.dummy_dataset",
+      "num_workers": 3,
+      "n_splits": 4,
+      "split_ratio": 0.9,
+      "dataset_classname": "DummyDataset",
+      "batch_size": 50
+    }
+  },
+  "model": {
+    "module": "src.strategies.dummy.dummy_ffn",
+    "class_name": "DummyFFN",
+    "args": {
+      "hidden_size_1": 60,
+      "hidden_size_2": 30,
+      "output_size": 2,
+      "input_size": 100
+    }
+  },
+  "logger": {
+    "module": "src.strategies.dummy.dummy_logger",
+    "class_name": "DummyLogger",
+    "args": {
+      "foo": 42
+    }
+  },
+  "learning_session": {
+    "epochs": 5,
+    "mode": "train",
+    "save_interval": -1,
+    "cnn_mode": false,
+    "seed": 1234,
+    "session_tag": "learning_session_test"
+  }
+}

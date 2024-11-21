@@ -1,0 +1,25 @@
+
+CNN can model syntax semantics
+Attention mechanism
+Add inputlayer size to hyperparameters
+
+Architecture suggestion: 
+INPUT CNN - concat + cosine similarity - FNN - OUTPUT
+
+keep punctuation
+
+add words like "!!!" or "..." to the word embeddings
+
+try bigger windows in CNN
+
+try different numbers of filters
+
+try low dropout and then decreate
+
+lower dimensionality for post vectors (at hidden layer, not at input)
+
+try word2vec
+
+https://arxiv.org/pdf/1510.03820.pdf
+
+

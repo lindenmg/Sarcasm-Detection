@@ -1,0 +1,102 @@
+{
+  "criterion": {
+    "args": {
+      "size_average": true
+    },
+    "class_name": "NLLLoss",
+    "module": "torch.nn"
+  },
+  "cv_iterator_factory": {
+    "args": {
+      "batch_size": 200,
+      "dataset_classname": "FFNDataset",
+      "dataset_module": "src.strategies.ffn.ffn_dataset",
+      "n_splits": 2,
+      "num_workers": 4,
+      "shuffle": false,
+      "split_ratio": 0.9
+    },
+    "class_name": "FFNCVIteratorFactory",
+    "module": "src.strategies.ffn.ffn_cv_iterator_factory"
+  },
+  "data_factory": {
+    "args": {
+      "pp_params": {
+        "conversion": {
+          "token_kind": "lower_",
+          "transform_specials": true
+        },
+        "filter": {
+          "no_punctuation": false,
+          "no_stop_words": true
+        },
+        "raw_data": {
+          "n_replies": null
+        },
+        "sw_cut_filename": "stop_words_cut_ultra.txt",
+        "sw_full_filename": "stop_words_full_ultra.txt",
+        "tokenization": {
+          "spacy_model": "en_core_web_md"
+        },
+        "vectorization": {
+          "analyzer": "char",
+          "max_features": 15000,
+          "min_df": 10,
+          "ngram_range": [
+            2,
+            4
+          ],
+          "tfidf": true
+        }
+      }
+    },
+    "class_name": "FFNDataFactory",
+    "module": "src.strategies.ffn.ffn_data_factory"
+  },
+  "learning_session": {
+    "epochs": 10,
+    "session_tag": "ffn01_FFN02_lower__True_10_char_[2,4]_15000_15000_000"
+  },
+  "logger": {
+    "args": {
+      "connectTimeoutMS": 5000,
+      "serverSelectionTimeoutMS": 5000
+    },
+    "class_name": "FFNMongoTensorboardLogger",
+    "module": "src.strategies.ffn.ffn_mongo_tensorboard_logger"
+  },
+  "lr_scheduler": {
+    "args": {
+      "factor": 0.95,
+      "mode": "min",
+      "patience": 10,
+      "threshold": 0.002,
+      "threshold_mode": "abs"
+    },
+    "class_name": "ReduceLROnPlateau",
+    "module": "torch.optim.lr_scheduler"
+  },
+  "metrics": {
+    "output_activation": "log_softmax"
+  },
+  "model": {
+    "args": {
+      "output_size": 2,
+      "post_dropout": 0.3,
+      "post_input_size": 15000,
+      "post_layer_size": 50,
+      "reply_dropout": 0.3,
+      "reply_input_size": 15000,
+      "reply_layer_size": 150
+    },
+    "class_name": "FFN02",
+    "module": "src.models.ffn_model"
+  },
+  "optimizer": {
+    "args": {
+      "lr": 0.005
+    },
+    "class_name": "ASGD",
+    "module": "torch.optim"
+  }
+}

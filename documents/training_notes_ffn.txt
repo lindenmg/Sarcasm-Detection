@@ -1,0 +1,8 @@
+ffn00_FFN00_lower__True_2_char_[2, 4]_10000_150_000_17247bef1e829c027a5e5c5bbe12dc4de34fd9bd
+fold 2 | step 10: 0.6233
+
+ffn00_FFN00_lower__False_5_char_[2, 4]_10000_50_000_91a84ece093ba638ae0633ef7d7dd2ba574e2e56
+fold 2 | step 10: 0.6225
+
+ffn00_FFN00_lower__True_5_char_[2, 4]_10000_150_000_a8a6b20cb3b1c519a031d2eaf7d7441a64c6ca70
+fold 2 | step 10:

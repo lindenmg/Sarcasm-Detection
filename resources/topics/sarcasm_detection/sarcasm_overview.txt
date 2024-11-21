@@ -1,0 +1,21 @@
+- Joshi, Aditya, Pushpak Bhattacharyya, and Mark J. Carman. "Automatic Sarcasm Detection: A Survey." ACM Computing Surveys (CSUR) 50.5 (2017): 73.
+    - link: https://www.cse.iitb.ac.in/~pb/papers/acm-csur17-sarcasm-survey.pdf
+    - description: Survey
+    - references:
+        - Soujanya Poria, Erik Cambria, Devamanyu Hazarika, and Prateek Vij. 2016. A deeper look into sarcastic Tweets using deep convolutional neural networks. arXiv preprint arXiv:1610.08815 (2016)
+            - link: https://arxiv.org/pdf/1610.08815.pdf
+            - description: "investigate the use of Deep Convolutional Networks for sarcasm detection."
+        - Aniruddha Ghosh and Tony Veale. 2016. Fracking Sarcasm using Neural Network. WASSA NAACL 2016 (2016)
+            - link: http://www.aclweb.org/anthology/W16-0425
+            - description: "use a combination of a Convolutional Neural Network, a Recurrent Neural Network (Long Short-Term Memory) followed by a Deep Neural Network. They compare their approach against recursive SVM, and show an improvement for the deep learning architecture
+        - Amir Silvio, Byron C Wallace, Hao Lyu, and Paula Carvalho Mario J Silva. 2016. Modelling Context with User Embeddings for Sarcasm Detection in Social Media. CoNLL 2016 (2016), 167
+            - link: https://arxiv.org/pdf/1607.00976.pdf
+            - description: "present a novel Convolutional Network-based architecture that learns user embeddings in addition to utterance-based embeddings. The authors state that it allows them to learn user-specic context."
+        - Aditya Joshi, Vaibhav Tripathi, Kevin Patel, Pushpak Bhaacharyya, and Mark Carman. 2016. Are Word Embedding based Features for Sarcasm Detection? EMNLP 2016 (2016).
+            - link: 
+            - description: "use similarity between word embeddings as features for sarcasm detection. They augment these word embedding-based features with features from four prior works. The inclusion of past features is key because they observe that using the new features alone does not suffice for good performance."
+
+- Zhang, Meishan, Yue Zhang, and Guohong Fu. "Tweet Sarcasm Detection Using Deep Neural Network." COLING. 2016.
+    - link: https://www.aclweb.org/anthology/C/C16/C16-1231.pdf
+    - description: "In particular, we use a bi-directional gated recurrent neural network to capture syntactic and semantic information over tweets locally, and a pooling neural network to extract contextual features automatically from history tweets."
+

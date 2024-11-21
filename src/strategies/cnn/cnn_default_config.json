@@ -1,0 +1,127 @@
+{
+  "criterion": {
+    "args": {
+      "size_average": true
+    },
+    "class_name": "NLLLoss",
+    "module": "torch.nn"
+  },
+  "cv_iterator_factory": {
+    "args": {
+      "batch_size": 256,
+      "dataset_classname": "EmbeddingDataSet",
+      "dataset_module": "src.data_science.datasets",
+      "n_splits": 1,
+      "shuffle": true,
+      "split_ratio": 0.888888888888888,
+      "sampler_class": "BucketRandomSampler",
+      "sampler_module": "src.data_science.samplers",
+      "batch_sampler_class": "LazyBatchSampler",
+      "batch_sampler_module": "src.data_science.samplers",
+      "batch_search_window": 3,
+      "best_batch_size": true
+    },
+    "class_name": "BaseCvIteratorFactory",
+    "module": "src.training.base_cv_it_factory"
+  },
+  "data_factory": {
+    "args": {
+      "pp_params": {
+        "conversion": {
+          "token_kind": "lower_",
+          "transform_specials": true
+        },
+        "embedding": {
+          "max_ex_len": 50
+        },
+        "filter": {
+          "no_punctuation": false,
+          "no_stop_words": false
+        },
+        "raw_data": {
+          "num_train_replies": null,
+          "num_test_replies": null
+        },
+        "sw_cut_filename": "stop_words_cut_ultra.txt",
+        "sw_full_filename": "stop_words_full_ultra.txt",
+        "tensor_data_dim": 30,
+        "test_file": "test.csv",
+        "tokenization": {
+          "spacy_model": "en_core_web_md"
+        },
+        "vocab": {
+          "word_vector_path": "word_vectors/fastText/ft_2M_300.csv",
+          "word_vec_count": 1999995,
+          "word_vec_dim": 300,
+          "ft_format": false,
+          "min_freq": 1,
+          "max_vocab_size": null
+        }
+      }
+    },
+    "class_name": "CnnDataFactory",
+    "module": "src.strategies.cnn.cnn_data_factory"
+  },
+  "learning_session": {
+    "epochs": 20,
+    "seed": 1337,
+    "session_tag": "cnn_baseline",
+    "mode": "train",
+    "mode_to_load": "train",
+    "fold_to_load": 9,
+    "save_interval": -1,
+    "cnn_mode": true,
+    "cache_prefix": "cnn_simple"
+  },
+  "logger": {
+    "args": {
+      "connectTimeoutMS": 5000,
+      "serverSelectionTimeoutMS": 5000
+    },
+    "class_name": "FFNMongoTensorboardLogger",
+    "module": "src.strategies.ffn.ffn_mongo_tensorboard_logger"
+  },
+  "lr_scheduler": {
+    "args": {
+      "factor": 0.95,
+      "mode": "min",
+      "patience": 10,
+      "threshold_mode": "abs"
+    },
+    "class_name": "ReduceLROnPlateau",
+    "module": "torch.optim.lr_scheduler"
+  },
+  "metrics": {
+    "output_activation": "log_softmax"
+  },
+  "model": {
+    "args": {
+      "hl1_kernels": [
+        [
+          2,
+          300
+        ]
+      ],
+      "hl1_kernel_num": 12,
+      "emb_dim": 300,
+      "pt_vectors": null,
+      "emb_num": null
+    },
+    "class_name": "CnnSimple",
+    "module": "src.models.cnn_baseline"
+  },
+  "optimizer": {
+    "args": {
+      "lr": 0.3000000081917338
+    },
+    "class_name": "Adam",
+    "module": "torch.optim"
+  },
+  "early_stopper": {
+    "args": {
+      "max_loss_increase_sum": 0.001
+    },
+    "module": "src.training.base_early_stopper",
+    "class_name": "BaseEarlyStopper"
+  }
+}

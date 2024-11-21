@@ -1,0 +1,40 @@
+{
+  "data_factory": {
+    "args": {
+      "pp_params": {
+        "conversion": {
+          "token_kind": "lower_",
+          "transform_specials": true
+        },
+        "embedding": {
+          "max_ex_len": 50
+        },
+        "filter": {
+          "no_punctuation": false,
+          "no_stop_words": false
+        },
+        "raw_data": {
+          "num_train_replies": null,
+          "num_test_replies": null
+        },
+        "sw_cut_filename": "stop_words_cut_ultra.txt",
+        "sw_full_filename": "stop_words_full_ultra.txt",
+        "tensor_data_dim": 30,
+        "test_file": "test.csv",
+        "tokenization": {
+          "spacy_model": "en_core_web_md"
+        },
+        "vocab": {
+          "word_vector_path": "word_vectors/fastText/ft_2M_300.csv",
+          "word_vec_count": 1999995,
+          "word_vec_dim": 300,
+          "ft_format": false,
+          "min_freq": 1,
+          "max_vocab_size": null
+        }
+      }
+    },
+    "class_name": "CnnDataFactory",
+    "module": "src.strategies.cnn.cnn_data_factory"
+  }
+}

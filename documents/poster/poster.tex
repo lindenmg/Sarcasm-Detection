@@ -1,0 +1,250 @@
+\documentclass[portrait,final,a0paper,fontscale=0.27]{baposter}
+
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{standalone}
+\usetikzlibrary{shapes,backgrounds}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{xcolor,colortbl}
+
+%\usepackage{times}
+%\usepackage{helvet}
+%\usepackage{bookman}
+\usepackage{palatino}
+
+\usepackage{mathtools, nccmath}
+\usepackage{booktabs, caption}
+\captionsetup{font=small, labelfont=sc}
+\usepackage{xparse}
+
+\DeclarePairedDelimiterX{\set}[1]\{\}{\setargs{#1}}
+\NewDocumentCommand{\setargs}{>{\SplitArgument{1}{;}}m}
+{\setargsaux#1}
+\NewDocumentCommand{\setargsaux}{mm}
+{\IfNoValueTF{#2}{#1}{\nonscript\,#1\nonscript\;\delimsize\vert\nonscript\:\allowbreak #2\nonscript\,}}
+\usepackage{wrapfig}
+\setlength\columnsep{2em}
+\usetikzlibrary{calc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Some math symbols used in the text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Multicol Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\columnsep}{1.5em}
+\setlength{\columnseprule}{0mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save space in lists. Use this after the opening of the list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+
+%\definecolor{lightblue}{cmyk}{0.83,0.24,0,0.12}
+\definecolor{lightblue}{rgb}{0.145,0.6666,1}
+
+% Draw a video
+
+\hyphenation{resolution occlusions}
+%%
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  grid=false,
+  % Column spacing
+  colspacing=1em,
+  % Color style
+  bgColorOne=white,
+  bgColorTwo=white,
+  borderColor=lightblue,
+  headerColorOne=black,
+  headerColorTwo=lightblue,
+  headerFontColor=white,
+  boxColorOne=white,
+  boxColorTwo=lightblue,
+  % Format of textbox
+  textborder=roundedleft,
+  % Format of text header
+  eyecatcher=false,
+  headerborder=closed,
+  headerheight=0.1\textheight,
+%  textfont=\sc, An example of changing the text font
+  headershape=roundedright,
+  headershade=shadelr,
+  headerfont=\Large\bf\textsc, %Sans Serif
+  textfont={\setlength{\parindent}{1.3em}},
+  boxshade=plain,
+%  background=shade-tb,
+  background=plain,
+  linewidth=2pt
+  }
+  % Eye Catcher
+  {\includegraphics[height=9.0em]{logo_blue_left}} 
+  % Title
+  {\bf \huge Sarcasm Detection \vspace{0.5em}}
+  % Authors
+  {{\bf Gabriel Lindenmaier, Pascal Weiß} \\ 
+  Deep Learning for Speech \& Language Processing - University of Stuttgart}
+  % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
+  	\centering
+    \includegraphics[height=7.0em]{logo_blue_left}
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Now define the boxes that make up the poster
+%%%---------------------------------------------------------------------------
+%%% Each box has a name and can be placed absolutely or relatively.
+%%% The only inconvenience is that you can only specify a relative position 
+%%% towards an already declared box. So if you have a box attached to the 
+%%% bottom, one to the top and a third one which should be in between, you 
+%%% have to specify the top and bottom boxes before you specify the middle 
+%%% box.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % A coloured circle useful as a bullet with an adjustably strong filling
+    \newcommand{\colouredcircle}{%
+      \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Motivation}{name=motivation,column=0,span=3,row=0}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\noindent \begin{minipage}{0.75\linewidth}
+   		\begin{itemize} %\compresslist
+      		\item \underline{Hypothesis:} Sarcastic \& serious replies to Reddit posts are distinguishable by machine learning
+      		\item \underline{Goal:} Classify answers to Reddit posts
+      		\item \underline{Procedure:} Use Convolution on the word embedding of the post \& replies
+      		\item \underline{Dataset based on:} \emph{SARC - Self-Annotated Reddit Corpus} (http://nlp.cs.princeton.edu/SARC/2.0/)
+      		\item \underline{Example post \& reply pair:}
+      		
+      		\vspace{+0.07em}      		
+      		\textbf{Post:} One in three Americans believe police 'routinely lie'\\
+      		\textbf{Reply:} Two in three Americans don't follow the news.
+      	\end{itemize}
+   	\end{minipage}
+%   	\noindent \begin{minipage}{0.25\linewidth}
+%   		\centering
+%   		%\includestandalone{example}
+%   		 \includegraphics{example}
+%   	\end{minipage}
+   
+   \vspace{0.3em}
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Illustration Of CNN Model}{name=models,column=0, row=0, span=3, below=motivation}{
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \centering
+    \resizebox{\textwidth}{!}{%
+    %\includestandalone[width=.95\textwidth]{graph}
+    \includegraphics{cnn_visualisation}
+    }
+      %\vspace{-0.6em}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Contributions}{name=contribution,column=0,below=models}{
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\noindent We propose two DNNs to classify sarcasm:  
+	\begin{enumerate}\compresslist
+		\item A CNN model with convolution
+		\item A FFN model based on character n-gram tf-idf vectors for post \& reply each
+	\end{enumerate}
+	\noindent The CNN model is the best one
+	%\vspace{0.3em}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Data}{name=experiments,column=1,span=2,below=models}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\noindent \begin{minipage}{1\linewidth} \begin{wraptable}{l}{0pt}
+	$ \begin{array}{ccc}
+	\textbf{Dataset} & \textbf{Posts} & \textbf{Replies} \\
+	\toprule
+	traning & 87k & 174k \\
+	validation & 11k & 22k\\
+	test & 11k & 22k \\
+	\bottomrule
+	\end{array} $
+\end{wraptable}
+We have 218,362 post-reply pairs in total. For each post there is  one non-sarcastic reply and one sarcastic reply. The annotation of sarcastic replies is inferred from a '\textbackslash s' at the end of the text. 
+This is a Reddit specific convention that is used by some users to point out, that their text is sarcastic. As not every user uses this tag for self-annotating sarcasm, it is obvious that
+the dataset contains a lot of noise.  Also there might be links, pictures or videos in the original posts which ate not visible in the data and hence another source of noise. As the dataset only contains short texts, there are a lot of features missing, like the attitude of the author, which makes this a hard problem.
+%We have 218362 post-reply pairs in total. For each post in the dataset there are
+%two corresponding replies. One of those is sarcastic according to its author the other serious. That is based on the fact, that Reddit users have the option
+%to tag their reply as sarcastic with \textbackslash s. Unfortunately there is a lot of noise,
+%because not everyone uses this tag and sarcasm is also dependent on the attitude of the writer.
+%In addition a substantial amount of posts where just links to further content which we can't see.
+\end{minipage}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \headerbox{Results}{name=results,column=1, row=1, span=2, below=experiments,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{table}
+\setlength{\parindent}{0cm}
+{
+\resizebox{0.75\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	\textbf{Model} & \textbf{Test} & \textbf{Validation} & \textbf{Training}\\
+	\hline
+	CNN & 67.6 & 67.0 & 67.6\\
+	Human* & 63.3 & - & -\\
+ \hline
+\end{tabular}
+}}
+\\ \\
+\\ \\
+\textbf{*Human survey:}\\
+We have asked six people to classify a distinct set of 20 post-replies each.
+There were no serious + sarcastic reply pairs for a post, so they could not determine based on a comparison which is sarcasm and which is not. We have to emphasise at that point, that all of the six different datasets got only classified by one person. The average accuracy is 63.3\%. The range is 40\% - 80\%.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\headerbox{Research Questions}{name=method,column=0,below=contribution,above=bottom}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\parindent}{0cm}
+\textbf{Pascal:}\\
+Comparison between grid search and Bayesian Optimization for hyperparameter optimization.
+\\ \\
+\textbf{Gabriel:}\\
+An investigation on how well a DNN - e.g. cut base model - can be used as feature generator for other state-of-the-art classification algorithms (non-NN-algorithms). This shall then be compared to the base model - which will be a pure NN approach.
+\\ \\
+\textbf{Future work for DNN:}\\
+Convolution with attention, modified word vectors, character-based input for CNN. RNN. Better human survey.
+}
+%
+\end{poster}
+\end{document}
+

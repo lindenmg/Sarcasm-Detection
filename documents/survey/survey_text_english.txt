@@ -1,0 +1,11 @@
+Hello
+
+Users of web forums write sometimes sarcastic comments. To process such comments automatically a software system should be able to see the difference between such sarcastic comments and normal ones.
+To account this problem, we are building such a software system. Therefore we want to compare it with the performance of humans to get an idea about its capabilities. This survey is therefore about sarcasm detection.
+The data of the survey consists of comments from an English web forum (Reddit).
+There is a post of a user and every post has a reply. You have to decide, if the reply is sarcastic or not.
+Don't worry if you are not sure. Sarcasm is quite often a matter of subjective opinion. This is NOT about getting the perfect score. This is about what you think sarcasm is. So think not too much about the meaning of each reply, choose what you feel.
+
+ (In case of the survey in chart form: type your answer in the last column. Use ‘yes’ for sarcasm and ‘no’ otherwise)
+
+Thank you very much! Your help is much appreciated.

@@ -1,0 +1,12 @@
+Hallo,
+
+Nutzer von Internet-Foren schreiben manchmal sarkastische Kommentare. Ein Software-System, das Kommentare automatisch verarbeitet, sollte daher in der Lage sein, zwischen sarkastischen und normalen zu unterscheiden.
+Wir arbeiten gerade an genau so einem Erkennungssystem. Um seine Leistung einschätzen zu können, möchten wir es mit der von Menschen vergleichen. In dieser Umfrage geht es daher um Sarkasmus-Erkennung.
+Das Umfragematerial besteht aus Kommentaren eines englischen Internet-Forums, namentlich Reddit. Es gibt einen Beitrag - ‚post‘ - eines Nutzers und eine Antwort - ‚reply‘ - darauf von einem Anderen. 
+Ihre Aufgabe wäre es, zu entscheiden, ob die Antwort sarkastisch ist oder nicht.
+Lassen Sie sich bitte nicht verunsichern, wenn Ihnen die Antwort schwer fällt. Sarkasmus ist öfters eine subjektive Angelegenheit. Es geht hierbei NICHT darum, das perfekte Ergebnis zu erreichen. Sondern darum, was Sie denken, was Sarkasmus ist. Denken Sie daher nicht zu lange über die Bedeutung einer jeden Antwort nach. Wählen Sie das, was Sie für richtig halten.
+
+(Im Falle der Umfrage in Tabellenform: Fügen Sie Ihre Antwort in der letzten Spalte ein. ‚yes‘ im Falle von Sarkasmus und ‚no‘ im anderen Fall.)
+
+Wir wissen Ihre Hilfe sehr zu schätzen, 
+vielen Dank!
